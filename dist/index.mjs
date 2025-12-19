@@ -24067,9 +24067,9 @@ async function dispatchWorkflow(distinctId) {
         distinct_id: distinctId
       }
     });
-    if (response.status !== 200) {
+    if (!(response.status == 200 || response == 204)) {
       throw new Error(
-        `Failed to dispatch action, expected 200 but received ${response.status}`
+        `Failed to dispatch action, expected 200 or 204 but received ${response.status}`
       );
     }
     core3.info(

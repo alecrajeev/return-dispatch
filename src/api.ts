@@ -31,9 +31,9 @@ export async function dispatchWorkflow(distinctId: string): Promise<void> {
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (response.status !== 200) {
+    if (!(response.status == 200 || response == 204)) {
       throw new Error(
-        `Failed to dispatch action, expected 200 but received ${response.status}`,
+        `Failed to dispatch action, expected 200 or 204 but received ${response.status}`,
       );
     }
 
